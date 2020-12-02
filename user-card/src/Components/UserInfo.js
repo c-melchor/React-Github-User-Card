@@ -1,20 +1,21 @@
 import React from "react";
 import Followers from "./Followers";
+import "../styles/followers.css";
 
 export default function UserInfo(props) {
   const userData = props.user.data;
   console.log(userData, "USER DATA HERE");
   return (
-    <div>
-      <h2>Name:</h2>
-      <p>{userData.name}</p>
+    <div className="me">
+      <h2>{userData.name}</h2>
       <img src={userData.avatar_url} alt="Christina Melchor's avatar" />
-      <h2>Bio:</h2>
       <p>{userData.bio}</p>
-      <h2>Number following:</h2>
+      <h2>Following:</h2>
       <p>{userData.following}</p>
-      <h2>My followers:</h2>
-      <Followers />
+      <div>
+        <h2 className="followersTag">My Followers:</h2>
+        <Followers />
+      </div>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import Axios from "axios";
+import "../styles/followers.css";
 
 class Followers extends React.Component {
   constructor(props) {
@@ -15,7 +16,6 @@ class Followers extends React.Component {
         this.setState({
           followers: res.data
         });
-        console.log(res.data, "FOLLOWERS HERE!!!");
       })
       .catch(err => {
         console.log(err);
@@ -24,9 +24,9 @@ class Followers extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="followersDiv">
         {this.state.followers.map(follower => (
-          <div key={follower.id}>
+          <div className="lilFollowersDiv" key={follower.id}>
             <p>{follower.login}</p>
             <img src={follower.avatar_url} alt={follower.login} />
           </div>
